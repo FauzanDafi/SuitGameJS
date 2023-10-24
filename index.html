@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="match">
+            <h1>match day</h1>
+            <h3 id="result"></h3>
+            <h3 id="winner"></h3>
+        </div>
+        <div class="button-grup">
+            <button class="option" onclick="selectOption(1)">1<button>
+                    <button class="option" onclick="selectOption(2)">2<button>
+                            <button class="option" onclick="selectOption(3)">3<button>
+        </div>
+    </div>
+
+    <script>
+
+        class game {
+            constructor() {
+                this.namePlayer = "Dafi";
+                this.nameBot = "DafiBot";
+                this.PlayerOption;
+                this.BotOption;
+                this.theWinner;
+            }
+            get getBotOption() {
+                return this.BotOption
+            }
+            set setBotOption(option) {
+                this.BotOption = option;
+            }
+            get getPlayerOption() {
+                return this.PlayerOption;
+            }
+            set setPlayerOption(option) {
+                this.PlayerOption = option;
+            }
+            botBrain() {
+                const start = new game();
+                const option = ["1", "2", "3"]
+                const generate = option[Math.floor(Math.random() * option.length)]
+
+                // this.BotOption = generate;
+                // this.setBotOption = generate;
+                return generate;
+            }
+            // match() {
+            //     if(this.botBrain() == 1 && ){
+
+            //     }else if {
+
+            //     }
+            // }
+        }
+
+
+        function selectOption(paramer) {
+            const start = new game();
+            console.log("hi, nama bot", start.nameBot);
+            // console.log("bot memilih", start.botBrain());
+
+
+            const result = document.getElementById("result");
+            const winner = document.getElementById("winner");
+
+            result.textContent = "bot memilih: " + start.botBrain() + " kamu memmilih: " + paramer;
+            winner.textContent = start.nameBot + " memilih: " + start.botBrain() + " " + start.namePlayer + " memilih: " + paramer;
+            // console.log(start.nameBot, "memilih", start.botBrain());
+            // console.log(start.namePlayer, "memilih", paramer)
+        } 
+    </script>
+
+</body>
+
+</html>
