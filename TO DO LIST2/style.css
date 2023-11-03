@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background-color: crimson;
+  width: 500px;
+  padding: 10px 15px;
+  min-height: 200px;
+}
+
+.input-box1 {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  background-color: white;
+}
+
+input {
+  width: 300px;
+  height: 40px;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+button {
+  height: 40px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.todos2 {
+  position: relative;
+  background-color: white;
+  width: 100%;
+  min-height: 0px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+li.checked {
+  text-decoration: line-through;
+}
+
+.close {
+  position: absolute;
+  font-size: 20px;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: crimson;
+}

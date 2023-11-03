@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Suit game</title>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="match1">
+            <h1>Suit game</h1>
+            <div id="result1"></div>
+            <div id="result2"></div>
+            <div id="winner"></div>
+        </div>
+
+        <div class="button-option1">
+            <button class="option" onclick="option(1)">1</button>
+            <button class="option" onclick="option(2)">2</button>
+            <button class="option" onclick="option(3)">3</button>
+        </div>
+    </div>
+    <a href="#">home</a>
+
+    <script>
+
+        class game {
+            constructor() {
+                this.namePlayer = "dafi"
+                this.nameBot = "dafiBot"
+                this.playerOption;
+                this.BotOption;
+                this.winner;
+            }
+
+            get getPlayerOption() {
+                return this.playerOption;
+            }
+
+            set setPlayerOption(option) {
+                this.playerOption = option;
+            }
+
+            get getBotOption() {
+                return this.BotOption;
+            }
+
+            set setBotOption(option) {
+                this.BotOption = option;
+            }
+
+            brainBot() {
+                const option = ["1", "2", "3"];
+                const generate = option[Math.floor(Math.random() * option.length)]
+                return generate;
+            }
+
+            calculationWinner() {
+                if (this.playerOption == "1" && this.BotOption == "2") {
+                    return this.winner = this.nameBot;
+                } else if (this.playerOption == "2" && this.BotOption == "1") {
+                    return this.winner = this.namePlayer;
+                } else if (this.playerOption == "1" && this.BotOption == "3") {
+                    return this.winner = this.nameBot;
+                } else if (this.playerOption == "3" && this.BotOption == "2") {
+                    return this.winner = this.namePlayer;
+                } else if (this.playerOption == "2" && this.BotOption == "3") {
+                    return this.winner = this.nameBot;
+                } else if (this.playerOption == "1" && this.BotOption == "3") {
+                    return this.winner = this.namePlayer;
+                } else if (this.playerOption == "3" && this.BotOption == "1") {
+                    return this.winner = this.nameBot;
+                } else {
+                    return this.winner = "SERI"
+                }
+            }
+        }
+
+        function option(op) {
+            const result1 = document.getElementById("result1");
+            const result2 = document.getElementById("result2");
+            const winner = document.getElementById("winner");
+
+            const start = new game();
+            start.playerOption = op;
+            start.BotOption = start.brainBot();
+            start.calculationWinner();
+
+            result1.textContent = "anda memilih: " + start.playerOption;
+            result2.textContent = "bot memilih: " + start.BotOption;
+            winner.textContent = "winner: " + start.winner;
+        }
+
+    </script>
+</body>
+
+</html>

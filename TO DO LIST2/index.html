@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To do list</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="input-box1">
+            <h1>TO DO LIST</h1>
+            <div class="input">
+                <input type="text" id="text-input">
+                <button id="btnTask">tambah</button>
+            </div>
+        </div>
+
+        <div class="todos2">
+            <ul id="todo">
+                <li>main game</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById("text-input");
+        const textInputValue = document.getElementById("text-input").value;
+        const todo = document.getElementById("todo");
+        const btnTask = document.getElementById("btnTask");
+        btnTask.addEventListener('click', addTaskList);
+
+        //function addTask
+        function addTaskList() {
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const inputText = document.getElementById("text-input");
+                const inputTextValue = inputText.value;
+                if (inputTextValue === "") return;
+
+                const taskList = document.getElementById("todo");
+                const tastItem = document.createElement("li");
+                taskList.appendChild(tastItem);
+
+                inputText.value = "";
+                if (textInputValue === '') {
+                    alert("you must write something");
+                } else {
+                    document.getElementById("todo").appendChild(li);
+                }
+                document.getElementById("text-input").value = "";
+
+                const span = document.createElement('span');
+                const txt = document.textContent("x");
+                span.className = "close";
+                span.appendChild(txt);
+                li.appendChild(span);
+
+                const closet = document.getElementsByClassName("close");
+                for (var i = 0; i < closet.length; i++) {
+                    const closeBtn = closet[i];
+                    closeBtn.addEventListener("click", function () {
+                        var div = closeBtn.parentElement;
+                        div.style.display = "none";
+                    })
+                }
+            })
+        }
+
+        const myList = document.getElementsByTagName("li");
+        for (var i = 0; i < myList.length; i++) {
+            const span = document.createElement("span");
+            const txt = document.createTextNode("x");
+            span.className = "close";
+            span.appendChild(txt);
+            myList[i].appendChild(span);
+        }
+
+        const closet = document.getElementsByClassName("close");
+        for (var i = 0; i < closet.length; i++) {
+            const closeBtn = closet[i];
+            closeBtn.addEventListener("click", function () {
+                var div = closeBtn.parentElement;
+                div.style.display = "none";
+            })
+        }
+
+        const list = document.querySelectorAll('li');
+        for (var i = 0; i < list.length; i++) {
+            const lists = list[i];
+            lists.addEventListener('click', function () {
+                lists.style.textDecoration = "line-through";
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>

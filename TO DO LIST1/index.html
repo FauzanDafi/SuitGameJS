@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1">
+
+        <div class="box-input1">
+            <h1>TO DO LIST</h1>
+            <div class="grup-input">
+                <input type="text" id="text-input1">
+                <button id="button-input1" onclick="addList()">tambah</button>
+            </div>
+        </div>
+
+        <div class="todos1">
+            <ul id="todo1"></ul>
+        </div>
+    </div>
+
+    <script>
+
+        function addList() {
+            const textInput = document.getElementById("text-input1");
+            const textInputValue = textInput.value.trim();
+            if (textInputValue === "") return;
+
+            const list = document.getElementById("todo1");
+            const listItem = document.createElement("li");
+            listItem.textContent = textInputValue;
+            list.appendChild(listItem);
+
+            textInput.value = "";
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List App</title>
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="input">
+            <h1>to do list</h1>
+            <div class="input-box">
+                <input type="text" id="text-input">
+                <button id="button-input" onclick="addTask()">tambah</button>
+            </div>
+        </div>
+        <div class="todos">
+            <ul id="todo"></ul>
+        </div>
+    </div>
+
+    <script>
+
+        function addTask() {
+            const inputText = document.getElementById("text-input");
+            const inputTextValue = inputText.value.trim();
+            if (inputTextValue === "") return;
+
+            const taskList = document.getElementById("todo");
+            const tastItem = document.createElement("li");
+            taskList.appendChild(tastItem);
+
+            inputText.value = "";
+        }
+
+    </script>
+</body>
+
+</html>
